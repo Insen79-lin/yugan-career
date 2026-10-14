@@ -11,18 +11,18 @@ if (addUrl || qrUrl) {
   const qr = document.getElementById('contact-qr');
   qr.hidden = !qrUrl; if (qrUrl) qr.src = qrUrl;
 }
-const planNames = { '求职全套服务 · 299元': '全套服务 · 299元', '4份简历＋岗位筛选 · 188元': '简历＋岗位筛选 · 188元', '单份简历服务 · 49元': '单份简历 · 49元' };
+const planNames = { '求职全套服务 · 299元': '全套服务 · 299元', '4份简历＋岗位筛选＋职业照精修 · 188元': '投递准备套餐 · 188元', '单份简历服务 · 49元': '单份简历 · 49元' };
 let selectedPlan = '';
-try { const cached = sessionStorage.getItem('yugan-selected-plan'); const migrated = ['4份简历服务 · 128元', '4份简历服务 · 188元'].includes(cached) ? '4份简历＋岗位筛选 · 188元' : cached; if (planNames[migrated]) { selectedPlan = migrated; if (migrated !== cached) sessionStorage.setItem('yugan-selected-plan', migrated); } } catch {}
+try { const cached = sessionStorage.getItem('yugan-selected-plan'); const migrated = ['4份简历服务 · 128元', '4份简历服务 · 188元', '4份简历＋岗位筛选 · 188元'].includes(cached) ? '4份简历＋岗位筛选＋职业照精修 · 188元' : cached; if (planNames[migrated]) { selectedPlan = migrated; if (migrated !== cached) sessionStorage.setItem('yugan-selected-plan', migrated); } } catch {}
 function updatePlan() {
  const selected = document.getElementById('selected-plan');
  selected.hidden = !selectedPlan;
  selected.textContent = selectedPlan ? `你选择的是：${selectedPlan}` : '';
  document.getElementById('copy-consultation').hidden = !selectedPlan;
- document.getElementById('sticky-plan').textContent = selectedPlan ? planNames[selectedPlan] : '简历＋岗位筛选 · 188元';
- document.getElementById('sticky-detail').textContent = selectedPlan ? '继续咨询这档服务' : '4份简历 + 岗位筛选';
+ document.getElementById('sticky-plan').textContent = selectedPlan ? planNames[selectedPlan] : '投递准备套餐 · 188元';
+ document.getElementById('sticky-detail').textContent = selectedPlan ? '继续咨询这档服务' : '简历＋岗位筛选＋职业照';
  const stickyButton = document.querySelector('.mobile-bar [data-contact]');
- stickyButton.dataset.plan = selectedPlan || '4份简历＋岗位筛选 · 188元';
+ stickyButton.dataset.plan = selectedPlan || '4份简历＋岗位筛选＋职业照精修 · 188元';
  stickyButton.textContent = selectedPlan ? '继续咨询这档服务' : '了解188元方案';
  document.getElementById('copy-feedback').textContent = '';
 }
