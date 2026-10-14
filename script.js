@@ -11,9 +11,9 @@ if (addUrl || qrUrl) {
   const qr = document.getElementById('contact-qr');
   qr.hidden = !qrUrl; if (qrUrl) qr.src = qrUrl;
 }
-const planNames = { '求职全套服务 · 299元': '全套服务 · 299元', '4份简历＋岗位筛选＋职业照精修 · 188元': '投递准备套餐 · 188元', '单份简历服务 · 49元': '单份简历 · 49元' };
+const planNames = { '求职全套服务 · 688元': '全套服务 · 688元', '4份简历＋岗位筛选＋职业照精修 · 188元': '投递准备套餐 · 188元', '单份简历服务 · 49元': '单份简历 · 49元' };
 let selectedPlan = '';
-try { const cached = sessionStorage.getItem('yugan-selected-plan'); const migrated = ['4份简历服务 · 128元', '4份简历服务 · 188元', '4份简历＋岗位筛选 · 188元'].includes(cached) ? '4份简历＋岗位筛选＋职业照精修 · 188元' : cached; if (planNames[migrated]) { selectedPlan = migrated; if (migrated !== cached) sessionStorage.setItem('yugan-selected-plan', migrated); } } catch {}
+try { const cached = sessionStorage.getItem('yugan-selected-plan'); const migrated = cached === '求职全套服务 · 299元' ? '求职全套服务 · 688元' : ['4份简历服务 · 128元', '4份简历服务 · 188元', '4份简历＋岗位筛选 · 188元'].includes(cached) ? '4份简历＋岗位筛选＋职业照精修 · 188元' : cached; if (planNames[migrated]) { selectedPlan = migrated; if (migrated !== cached) sessionStorage.setItem('yugan-selected-plan', migrated); } } catch {}
 function updatePlan() {
  const selected = document.getElementById('selected-plan');
  selected.hidden = !selectedPlan;
