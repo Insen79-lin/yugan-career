@@ -11,16 +11,19 @@ if (addUrl || qrUrl) {
   const qr = document.getElementById('contact-qr');
   qr.hidden = !qrUrl; if (qrUrl) qr.src = qrUrl;
 }
-const planNames = { '求职全套服务 · 299元': '全套服务 · 299元', '4份简历服务 · 128元': '4份简历 · 128元', '单份简历服务 · 49元': '单份简历 · 49元' };
+const planNames = { '求职全套服务 · 299元': '全套服务 · 299元', '4份简历服务 · 188元': '4份简历 · 188元', '单份简历服务 · 49元': '单份简历 · 49元' };
 let selectedPlan = '';
-try { const cached = sessionStorage.getItem('yugan-selected-plan'); if (planNames[cached]) selectedPlan = cached; } catch {}
+try { const cached = sessionStorage.getItem('yugan-selected-plan'); const migrated = cached === '4份简历服务 · 128元' ? '4份简历服务 · 188元' : cached; if (planNames[migrated]) { selectedPlan = migrated; if (migrated !== cached) sessionStorage.setItem('yugan-selected-plan', migrated); } } catch {}
 function updatePlan() {
  const selected = document.getElementById('selected-plan');
  selected.hidden = !selectedPlan;
  selected.textContent = selectedPlan ? `你选择的是：${selectedPlan}` : '';
  document.getElementById('copy-consultation').hidden = !selectedPlan;
- document.getElementById('sticky-plan').textContent = selectedPlan ? planNames[selectedPlan] : '想了解哪一档服务？';
- document.getElementById('sticky-detail').textContent = selectedPlan ? '继续咨询这档服务' : '全套299元 · 简历128元 · 单份49元';
+ document.getElementById('sticky-plan').textContent = selectedPlan ? planNames[selectedPlan] : '多方向简历 · 188元';
+ document.getElementById('sticky-detail').textContent = selectedPlan ? '继续咨询这档服务' : '3份方向版 + 1份通用版';
+ const stickyButton = document.querySelector('.mobile-bar [data-contact]');
+ stickyButton.dataset.plan = selectedPlan || '4份简历服务 · 188元';
+ stickyButton.textContent = selectedPlan ? '继续咨询这档服务' : '了解188元方案';
  document.getElementById('copy-feedback').textContent = '';
 }
 updatePlan();

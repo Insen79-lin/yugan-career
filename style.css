@@ -17,3 +17,38 @@
 
 /* Visible delivery navigation, including during long mobile examples. */
 .delivery-navigation{background:#f5f8fc;padding:0 0 20px;margin-bottom:12px}.delivery-switch-hint{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 13px;color:#36506c;font-size:13px}.delivery-switch-hint strong{color:var(--ink);font-weight:600}.delivery-switch-hint span{color:#0754c9}.delivery-navigation .delivery-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;border:0;margin:0}.delivery-navigation .delivery-tabs button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:17px 10px;min-height:100px;background:#fff;border:1.5px solid #b6cff4;border-radius:12px;color:#1c426e;box-shadow:0 2px 6px #24467b06;position:relative}.delivery-tab-title{font-size:18px;font-weight:750;line-height:1.5}.delivery-tab-description{font-size:12px;color:#50637a;line-height:1.5;font-weight:400}.delivery-navigation .delivery-tabs button::after{content:'点击查看';font-size:11px;font-weight:600;color:#0754c9;line-height:1.5}.delivery-navigation .delivery-tabs button[aria-selected=true]{background:#0665f9;color:white;border-color:#0665f9;box-shadow:0 5px 13px #0665f926}.delivery-navigation .delivery-tabs button[aria-selected=true] .delivery-tab-description{color:#fff}.delivery-navigation .delivery-tabs button[aria-selected=true]::after{content:'✓ 正在查看';color:#fff}.delivery-navigation .delivery-tabs button:hover{border-color:#0665f9}.delivery-navigation .delivery-tabs button:focus-visible{outline-offset:3px}.delivery-navigation .delivery-tabs button[aria-selected=true]::before{content:'';position:absolute;bottom:-8px;left:calc(50% - 7px);width:14px;height:14px;background:#0665f9;transform:rotate(45deg)}@media(max-width:700px){.delivery-navigation{position:sticky;top:0;z-index:5;padding:12px 0 17px;margin-bottom:13px;box-shadow:0 7px 9px #f5f8fc}.delivery-switch-hint{font-size:12px;gap:6px;margin-bottom:10px}.delivery-switch-hint span{font-size:11px}.delivery-navigation .delivery-tabs{gap:8px}.delivery-navigation .delivery-tabs button{min-height:98px;padding:12px 4px;gap:5px;border-radius:10px}.delivery-tab-title{font-size:15px;white-space:nowrap}.delivery-tab-description{font-size:11px}.delivery-navigation .delivery-tabs button::after{font-size:11px}}@media(max-width:350px){.delivery-switch-hint{font-size:11px}.delivery-switch-hint span{font-size:10px}.delivery-tab-title{font-size:14px}.delivery-tab-description{font-size:10px}.delivery-navigation .delivery-tabs{gap:6px}}
+
+/* 主推188元；299元展示增量价值；49元展示真实适用范围。 */
+.pricing-grid{grid-template-columns:1.15fr 1fr 1fr;align-items:stretch}
+.price-card.recommended-plan{background:#edf4ff;border:2px solid #0665f9;box-shadow:0 10px 28px #0665f90c;padding:24px}
+.recommend-label{color:#fff;background:var(--brand);font-size:12px;font-weight:700;padding:5px 11px;border-radius:6px;white-space:nowrap}
+.recommended-plan .plan-price{color:#0754c9}
+.resume-benefits{grid-template-columns:1fr;gap:7px}
+.complete-plan{background:#fff;border-color:#c3d5ef}
+.upgrade-value{font-size:13px;color:#0754c9;background:#f0f5ff;padding:10px 12px;border-radius:8px;margin:0 0 18px;line-height:1.8}
+.plan-limit{margin:0 0 20px;padding:13px 14px;border-left:2px solid #b6cff4;background:#f6f8fc;border-radius:0 8px 8px 0}
+.plan-limit>strong{font-size:12px;color:#445c79}.plan-limit p{font-size:13px;margin:5px 0 9px;line-height:1.85}
+.plan-limit a{display:inline-block;font-size:13px;color:#0754c9;font-weight:600;text-decoration:underline;text-underline-offset:4px;line-height:1.8}
+@media(max-width:1000px){.price-card.recommended-plan{padding:19px}}
+@media(max-width:700px){
+ .pricing-grid{grid-template-columns:1fr;gap:16px}
+ .price-card.recommended-plan{display:flex;padding:22px;gap:0}
+ .recommended-plan .plan-head{margin-bottom:0;gap:10px}
+ .recommended-plan .plan-price{margin:12px 0 6px;justify-content:flex-start;flex-wrap:nowrap}
+ .price-card.recommended-plan .plan-price strong{font-size:54px}
+ .price-card.recommended-plan .plan-price>span:last-child{flex-basis:auto;font-size:14px;text-align:left}
+ .recommended-plan h2{margin-top:0;font-size:22px}
+ .price-card.recommended-plan .plan-summary,.price-card.complete-plan .plan-summary,.price-card.single-plan .plan-summary{display:block;font-size:14px;line-height:1.8;margin:8px 0 16px}
+ .price-card.recommended-plan .resume-bundle{margin-top:0;padding:15px 0}
+ .price-card.recommended-plan .resume-bundle strong{font-size:18px}
+ .price-card.recommended-plan .resume-bundle span{font-size:14px;line-height:1.8}
+ .recommended-plan .plan-includes{font-size:14px;margin:0 0 20px;gap:7px}
+ .price-card.recommended-plan .button{font-size:16px;padding:14px 12px;min-height:50px}
+ .price-card.complete-plan .plan-summary,.price-card.single-plan .plan-summary,.complete-plan .plan-includes,.upgrade-value,.plan-limit{grid-column:1/-1}
+ .complete-plan .plan-includes{font-size:14px;gap:10px 8px;margin:0 0 17px}
+ .price-card.complete-plan .resume-bundle,.price-card.single-plan .resume-bundle{margin-top:0}
+ .upgrade-value{font-size:14px;margin-bottom:17px}
+ .plan-limit{padding:13px 14px;margin:0 0 18px}.plan-limit p,.plan-limit a{font-size:14px}
+ .plan-tag{font-size:14px}.recommend-label{font-size:12px}
+}
+@media(max-width:350px){.price-card.recommended-plan{padding:19px}.recommended-plan h2{font-size:20px}.recommend-label{padding:4px 8px;font-size:11px}}
